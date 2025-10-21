@@ -11,6 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.InmobiliariaApp">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyA3zVGi78liUN-2eDkPVcP-tPb-qqyBI6U" />
         <activity
             android:name=".MainActivity"
             android:exported="false"
