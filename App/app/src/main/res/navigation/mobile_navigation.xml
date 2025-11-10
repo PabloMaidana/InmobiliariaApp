@@ -29,6 +29,51 @@
         android:name="com.example.inmobiliariaapp.ui.contratos.ContratosFragment"
         android:label="@string/contratos"
         tools:layout="@layout/fragment_contratos" />
+    <fragment
+        android:id="@+id/detalleInmuebleFragment"
+        android:name="com.example.inmobiliariaapp.ui.inmuebles.DetalleInmuebleFragment"
+        android:label="Detalle Inmueble"
+        tools:layout="@layout/fragment_detalle_inmueble" />
+    <fragment
+        android:id="@+id/agregarInmuebleFragment"
+        android:name="com.example.inmobiliariaapp.ui.inmuebles.AgregarInmuebleFragment"
+        android:label="Agregar Inmueble"
+        tools:layout="@layout/fragment_agregar_inmueble" />
+    <fragment
+        android:id="@+id/inquilinosFragment"
+        android:name="com.example.inmobiliariaapp.ui.inquilinos.InquilinosFragment"
+        android:label="Inquilinos"
+        tools:layout="@layout/fragment_inquilinos" />
+    <fragment
+        android:id="@+id/detalleInquilinoFragment"
+        android:name="com.example.inmobiliariaapp.ui.inquilinos.DetalleInquilinoFragment"
+        android:label="Detalle Inquilino"
+        tools:layout="@layout/fragment_detalle_inquilino" />
+    <fragment
+        android:id="@+id/contratosFragment"
+        android:name="com.example.inmobiliariaapp.ui.contratos.ContratosFragment"
+        android:label="Contratos"
+        tools:layout="@layout/fragment_contratos" />
+    <fragment
+        android:id="@+id/detalleContratoFragment"
+        android:name="com.example.inmobiliariaapp.ui.contratos.DetalleContratoFragment"
+        android:label="Detalle Contrato"
+        tools:layout="@layout/fragment_detalle_contrato" />
+    <fragment
+        android:id="@+id/pagosFragment"
+        android:name="com.example.inmobiliariaapp.ui.pagos.PagosFragment"
+        android:label="Pagos"
+        tools:layout="@layout/fragment_pagos" />
+    <fragment
+        android:id="@+id/logoutFragment"
+        android:name="com.example.inmobiliariaapp.ui.logout.LogoutFragment"
+        android:label="Cerrar Sesión"
+        tools:layout="@layout/fragment_logout" />
+    <fragment
+        android:id="@+id/cambiarPasswordFragment"
+        android:name="com.example.inmobiliariaapp.ui.perfil.CambiarPasswordFragment"
+        android:label="Cambiar Contraseña"
+        tools:layout="@layout/fragment_cambiar_password" />
 
 
 </navigation>

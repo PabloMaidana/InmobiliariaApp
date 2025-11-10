@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -75,6 +76,10 @@ public class PerfilFragment extends Fragment {
                 mViewModel.guardar(binding.button.getText().toString(), nombre, apellido, dni, telefono, email);
             }
         });
+
+        binding.btnCambiarPassword.setOnClickListener(v ->
+                Navigation.findNavController(v).navigate(R.id.cambiarPasswordFragment)
+        );
 
 
         return binding.getRoot();

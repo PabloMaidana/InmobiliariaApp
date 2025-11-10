@@ -53,9 +53,17 @@ public class InmuebleAdapter extends RecyclerView.Adapter<InmuebleAdapter.Inmueb
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
-                // bundle.putSerializable("inmueble", inmueble);
-                // Navigation.findNavController((Activity)view.getContext(), R.id.nav_host_fragment_content_main, bundle);
+                bundle.putInt("idInmueble", inmueble.getIdInmueble());
+                bundle.putString("direccion", inmueble.getDireccion());
+                bundle.putString("uso", inmueble.getUso());
+                bundle.putString("tipo", inmueble.getTipo());
+                bundle.putInt("ambientes", inmueble.getAmbientes());
+                bundle.putDouble("superficie", inmueble.getSuperficie());
+                bundle.putDouble("valor", inmueble.getValor());
+                bundle.putString("imagen", inmueble.getImagen());
+                bundle.putBoolean("disponible", inmueble.isDisponible());
 
+                Navigation.findNavController(view).navigate(R.id.detalleInmuebleFragment, bundle);
             }
         });
 
@@ -70,7 +78,6 @@ public class InmuebleAdapter extends RecyclerView.Adapter<InmuebleAdapter.Inmueb
 
         private TextView tvDireccion, tvPrecio, tvTipo;
         private ImageView img;
-
         private CardView cardView;
         public InmuebleViewHolder(@NonNull View itemView) {
             super(itemView);

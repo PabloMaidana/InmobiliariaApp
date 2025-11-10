@@ -25,9 +25,9 @@
             android:icon="@drawable/ic_contrato"
             android:title="@string/contratos" />
         <item
-            android:id="@+id/nav_logout"
+            android:id="@+id/logoutFragment"
             android:icon="@drawable/ic_logout"
-            android:title="@string/logout" />
+            android:title="Cerrar sesión" />
 
 
 

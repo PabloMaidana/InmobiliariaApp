@@ -8,7 +8,9 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -33,22 +35,29 @@ public class InmueblesFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         viewModel = new ViewModelProvider(this).get(InmueblesViewModel.class);
-        binding = FragmentInmueblesBinding.inflate(inflater, container, false);
+        binding = FragmentInmueblesBinding.inflate(getLayoutInflater());
 
         viewModel.getmInmuebles().observe(getViewLifecycleOwner(), new Observer<List<Inmueble>>() {
             @Override
             public void onChanged(List<Inmueble> inmuebles) {
                 InmuebleAdapter adapter = new InmuebleAdapter(inmuebles, getContext());
-                GridLayoutManager glm = new GridLayoutManager(getContext(), 2);
+                LinearLayoutManager llm = new LinearLayoutManager(getContext());
                 RecyclerView rvInmuebles = binding.rvInmuebles;
 
-                binding.rvInmuebles.setLayoutManager(glm);
+                binding.rvInmuebles.setLayoutManager(llm);
                 binding.rvInmuebles.setAdapter(adapter);
             }
+        });
+        viewModel.leerInmuebles();
+
+        binding.fab.setOnClickListener(v -> {
+            Navigation.findNavController(v).navigate(R.id.agregarInmuebleFragment);
         });
 
         return binding.getRoot();
     }
+
+
 
     @Override
     public void onDestroyView() {

@@ -5,9 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".ui.contratos.ContratosFragment">
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvContratos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
-
+        android:padding="8dp"
+        tools:listitem="@layout/contrato_card" />
 </FrameLayout>

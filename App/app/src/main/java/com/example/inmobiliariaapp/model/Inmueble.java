@@ -6,7 +6,7 @@ public class Inmueble {
     private String uso;
     private String tipo;
     private int ambientes;
-    private double superficie;
+    private int superficie;
     private double latitud;
     private double longitud;
     private double valor;
@@ -17,7 +17,7 @@ public class Inmueble {
     public Inmueble() {
 
     }
-    public Inmueble(int idInmueble, String direccion, String uso, String tipo, int ambientes, double superficie, double latitud, double longitud, double valor, String imagen, boolean disponible, Propietario duenio) {
+    public Inmueble(int idInmueble, String direccion, String uso, String tipo, int ambientes, int superficie, double latitud, double longitud, double valor, String imagen, boolean disponible, Propietario duenio) {
         this.idInmueble = idInmueble;
         this.direccion = direccion;
         this.uso = uso;
@@ -76,7 +76,7 @@ public class Inmueble {
         return superficie;
     }
 
-    public void setSuperficie(double superficie) {
+    public void setSuperficie(int superficie) {
         this.superficie = superficie;
     }
 
