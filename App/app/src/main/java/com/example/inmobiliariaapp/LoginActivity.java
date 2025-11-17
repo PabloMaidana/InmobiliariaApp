@@ -3,6 +3,7 @@ package com.example.inmobiliariaapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -20,6 +21,20 @@ public class LoginActivity extends AppCompatActivity {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         vm = new ViewModelProvider(this).get(LoginViewModel.class);
         setContentView(binding.getRoot());
+
+        vm.getMMensaje().observe(this, mensaje -> {
+            if (mensaje != null) {
+                Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        vm.getMLoginResultado().observe(this, exito -> {
+            if (exito != null && exito) {
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         binding.btnLogin.setOnClickListener(onClickListener -> {
             String usuario = binding.etUsuario.getText().toString();

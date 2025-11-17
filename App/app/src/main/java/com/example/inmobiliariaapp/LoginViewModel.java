@@ -15,40 +15,58 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginViewModel extends AndroidViewModel {
-    private MutableLiveData<Boolean> mLoginResultado  = new MutableLiveData<>();
-    private String usuario;
-    private String password;
+    private MutableLiveData<Boolean> mLoginResultado = new MutableLiveData<>();
+    private MutableLiveData<String> mMensaje = new MutableLiveData<>();
+
     public LoginViewModel(@NonNull Application application) {
         super(application);
     }
-    public LiveData<Boolean> getMLoginResultado(){
+
+    public LiveData<Boolean> getMLoginResultado() {
         return mLoginResultado;
     }
-    public void login(String usuario, String password){
+
+    public LiveData<String> getMMensaje() {
+        return mMensaje;
+    }
+
+    public void login(String usuario, String password) {
+
+
+        if (usuario == null || usuario.isEmpty()) {
+            mMensaje.postValue("Debe ingresar un usuario");
+            return;
+        }
+        if (password == null || password.isEmpty()) {
+            mMensaje.postValue("Debe ingresar una contraseña");
+            return;
+        }
+
         ApiClient.InmobiliariaService api = ApiClient.getApiInmobiliaria();
-        Call<String> llamada = api.login(usuario,password);
+        Call<String> llamada = api.login(usuario, password);
+
         llamada.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
-                if (response.isSuccessful()){
+
+                if (response.isSuccessful() && response.body() != null) {
+
                     String token = response.body();
                     ApiClient.guardarToken(getApplication(), token);
-                    // mMensaje.postValue("Bienvenido");
-                    // postvalue al ser una funcion asincrona
 
-                    Intent intent = new Intent(getApplication(), MainActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    getApplication().startActivity(intent);
-                }else{
-                    // mMensaje.postValue("Usuario y/o contraseñas incorrectas");
+                    mLoginResultado.postValue(true);
+
+                } else {
+                    mMensaje.postValue("Usuario o contraseña incorrectos");
+                    mLoginResultado.postValue(false);
                 }
             }
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-                //mMensaje.postValue("Error de servidor");
+                mMensaje.postValue("Error de conexión: " + t.getMessage());
+                mLoginResultado.postValue(false);
             }
         });
-
     }
 }

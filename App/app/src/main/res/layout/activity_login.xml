@@ -9,7 +9,7 @@
     android:background="#F9F9F9"
     tools:context=".LoginActivity">
 
-    <!-- App Title -->
+
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
@@ -34,7 +34,7 @@
         android:layout_marginTop="44dp"/>
 
 
-    <!-- Usuario Input -->
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/usuarioLayout"
         android:layout_width="0dp"
@@ -53,7 +53,7 @@
             android:text="luisprofessor@gmail.com" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Contraseña Input -->
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordLayout"
         android:layout_width="0dp"
@@ -73,7 +73,7 @@
             android:text="DEEKQW" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Login Button -->
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnLogin"
         android:layout_width="0dp"
@@ -93,7 +93,7 @@
         android:id="@+id/tvSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="¿Ha olvidado su contraseña?"
+        android:text="Recuperar contraseña"
         android:textSize="14sp"
         android:textColor="#3F51B5"
         android:layout_marginTop="16dp"
